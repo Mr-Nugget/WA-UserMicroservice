@@ -22,6 +22,9 @@ public class UserNotFoundException extends Exception {
 
 	public UserNotFoundException(String message) {
 		super(message);
-		// TODO Auto-generated constructor stub
+	}
+
+	public UserNotFoundException(String message, Exception e) {
+		super(message, e);
 	}
 }
