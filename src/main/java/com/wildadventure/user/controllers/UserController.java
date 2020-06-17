@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.wildadventure.user.models.AuthentificationRequest;
 import com.wildadventure.user.models.AuthentificationResponse;
+import com.wildadventure.user.models.MyUserPrincipal;
 import com.wildadventure.user.models.User;
 import com.wildadventure.user.services.IUserService;
 import com.wildadventure.user.services.MyUserDetailsService;
@@ -62,7 +62,7 @@ public class UserController {
 			throw new UserNotFoundException("Cannot find user with id : " + id);
 		}
 	}
-	
+
 	/**
 	 * Entrypoint to get a user with JWT token
 	 * @param jwt
@@ -126,7 +126,7 @@ public class UserController {
 			return ResponseEntity.created(location).build();
 		}
 	}
-	
+
 	/**
 	 * EndPoint to authentificate a user with mail and password, generate a new Json Web Token
 	 * @param request
@@ -139,12 +139,12 @@ public class UserController {
 			authentificationManager.authenticate(
 					new UsernamePasswordAuthenticationToken(request.getMail(), request.getPassword())
 					);
-			
-			UserDetails userDetails = userDetailsService.loadUserByUsername(request.getMail());
+
+			MyUserPrincipal userDetails = (MyUserPrincipal) userDetailsService.loadUserByUsername(request.getMail());
 			String jwt = jwtService.generateToken(userDetails);
-			
-			return ResponseEntity.ok(new AuthentificationResponse(jwt));
-			
+
+			return ResponseEntity.ok(new AuthentificationResponse(jwt, userDetails.getUser().getFirstname(), userDetails.getUser().getLastname()));
+
 		}catch (BadCredentialsException e) {
 			throw new UserNotFoundException("Cannot find username or password", e);
 		}

@@ -49,5 +49,8 @@ public class MyUserPrincipal implements UserDetails{
 		return true;
 	}
 	
+	public User getUser() {
+		return user;
+	}
 	
 }
