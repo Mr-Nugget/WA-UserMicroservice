@@ -143,7 +143,7 @@ public class UserController {
 			MyUserPrincipal userDetails = (MyUserPrincipal) userDetailsService.loadUserByUsername(request.getMail());
 			String jwt = jwtService.generateToken(userDetails);
 
-			return ResponseEntity.ok(new AuthentificationResponse(jwt, userDetails.getUser().getFirstname(), userDetails.getUser().getLastname()));
+			return ResponseEntity.ok(new AuthentificationResponse(jwt, userDetails.getUser().getFirstname(), userDetails.getUser().getLastname(), userDetails.getUser().getId()));
 
 		}catch (BadCredentialsException e) {
 			throw new UserNotFoundException("Cannot find username or password", e);
