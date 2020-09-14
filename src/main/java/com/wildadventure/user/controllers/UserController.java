@@ -3,6 +3,8 @@ package com.wildadventure.user.controllers;
 import java.net.URI;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -45,7 +47,8 @@ public class UserController {
 	@Autowired
 	private IUserService service;
 
-
+	Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	/**
 	 * Get user from DB by its ID
 	 * @param id
@@ -55,7 +58,7 @@ public class UserController {
 	@GetMapping(value="/byId/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable int id) throws UserNotFoundException {
 		Optional<User> option = service.getById(new Long(id));
-
+		
 		if(option.isPresent()) {
 			return ResponseEntity.ok(option.get());
 		}else {
@@ -97,7 +100,7 @@ public class UserController {
 	@GetMapping(value="/byMail/{mail}")
 	public ResponseEntity<User> getUserByMail(@PathVariable String mail) throws UserNotFoundException{
 		User user = service.getByMail(mail);
-
+		
 		if(user == null) {
 			throw new UserNotFoundException("Cannot find user with mail : " + mail);
 		}else {
