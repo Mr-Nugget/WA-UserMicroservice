@@ -33,7 +33,6 @@ import com.wildadventure.user.exceptions.UserNotFoundException;
  * @author Titouan
  *
  */
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping("/User")
 public class UserController {
