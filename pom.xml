@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.wildadventure</groupId>
 	<artifactId>user</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>war</packaging>
 	<name>user</name>
 	<description>Microservice User for WildAdventure API. Handle secure authentification for users of Wild Adventure.</description>
