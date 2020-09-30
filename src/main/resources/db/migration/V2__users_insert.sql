@@ -1,0 +1,2 @@
+INSERT INTO USER_WA (user_id, firstname, lastname, mail, password) VALUES(1, 'Titouan', 'Raimbault', 't_raimbault@yahoo.fr', 'nimvav94');
+INSERT INTO USER_WA (user_id, firstname, lastname, mail, password) VALUES(2, 'Openclassrooms', 'open', 'test@test.fr', 'azertyuiop');
