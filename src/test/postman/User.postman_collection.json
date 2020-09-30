@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "cf454dd6-b082-496f-8148-c1ce8e475b3c",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:10090/byMail/t_raimbault@yahoo.fr",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0X3JhaW1iYXVsdEB5YWhvby5mciIsImV4cCI6MTU5MjMzODQ2NiwiaWF0IjoxNTkyMzAyNDY2fQ._EHYCv9oFMg7BMgBvq3viPb6LuZHLJGLiGjkUwSg2bE",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:10090/byMail/t_raimbault@yahoo.fr",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10090",
+					"path": [
+						"byMail",
+						"t_raimbault@yahoo.fr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:10090/User/authenticate",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "QVn5$QvrpYh$4nX2uy9",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "WildAdventure",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:10090/User/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10090",
+					"path": [
+						"User",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:10090/User/byToken/eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0X3JhaW1iYXVsdEB5YWhvby5mciIsImV4cCI6MTU5MjQzNTI4MywiaWF0IjoxNTkyMzk5MjgzfQ.NrD5Yh6W4ouRnNs1PlXYmxydtTUSsdNtER5q9CygOGQ",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0X3JhaW1iYXVsdEB5YWhvby5mciIsImV4cCI6MTU5MjMzODQ2NiwiaWF0IjoxNTkyMzAyNDY2fQ._EHYCv9oFMg7BMgBvq3viPb6LuZHLJGLiGjkUwSg2bE",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:10090/User/byToken/eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0X3JhaW1iYXVsdEB5YWhvby5mciIsImV4cCI6MTU5MjQzNTI4MywiaWF0IjoxNTkyMzk5MjgzfQ.NrD5Yh6W4ouRnNs1PlXYmxydtTUSsdNtER5q9CygOGQ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "10090",
+					"path": [
+						"User",
+						"byToken",
+						"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0X3JhaW1iYXVsdEB5YWhvby5mciIsImV4cCI6MTU5MjQzNTI4MywiaWF0IjoxNTkyMzk5MjgzfQ.NrD5Yh6W4ouRnNs1PlXYmxydtTUSsdNtER5q9CygOGQ"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:10090/User/byId/1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0X3JhaW1iYXVsdEB5YWhvby5mciIsImV4cCI6MTU5MjAwNDEyOSwiaWF0IjoxNTkxOTY4MTI5fQ.qEPnq_4GvNk4WeV9_LWbMt2IHqgO7FIbRs2NvpT34l4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mail\" : \"t_raimbault@yahoo.fr\",\r\n    \"password\": \"nimvav94\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:10090/User/byId/1",
+					"host": [
+						"localhost"
+					],
+					"port": "10090",
+					"path": [
+						"User",
+						"byId",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:10090/User/add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mail\" : \"test@yahoo.fr\",\r\n    \"firstname\": \"Test\",\r\n    \"lastname\": \"Test\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:10090/User/add",
+					"host": [
+						"localhost"
+					],
+					"port": "10090",
+					"path": [
+						"User",
+						"add"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
